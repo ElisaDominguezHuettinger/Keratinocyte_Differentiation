@@ -1,6 +1,6 @@
 targets, factors
 EGFR, !PKC | !p53 | EGFR
-cJun, (!PKC & !p53 & EGFR) & cJun | IL1
+cJun, PKC | (!PKC & !p53 & EGFR) & cJun | IL1
 p53, PKC & (!cJun | !Np63 | !Notch | miRNA203) & !E6 
 miRNA203, (Np63 | p53) &  !cJun
 Notch, (p53 | Np63 ) & cMyc 
