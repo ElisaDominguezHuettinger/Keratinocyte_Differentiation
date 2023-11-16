@@ -1,0 +1,30 @@
+Final Stat3 and Np63 parameter values
+
+NFkB=0; %Effect: degrades Np63
+IL4=0; %Effect: increases Stat3 producioton rate   
+v_Np63 =2; %1st Positive feedback: effect of Np63 on Stat3 production
+d_Stat3=1; %Stat3 degradation rate   
+va_Np63=10; %2nd Positive feedback: max effect of Np63 on Np63 produciton
+v_Stat3=1; %3rd positive feedback: effect of Stat3 on Np63 produciton
+k_Np63 =1.35; %AC50 fpr the 2nd positive feedback
+n_H=3;  %Hill coefficient for the 2nd positive feedback
+d_Np63=6; %Nominal Np63 degradation rate
+d_PKC=0.5; %PKC-mediated degradation rate of Np63
+
+EDC values for Toufighi fit
+
+a_EDC=153.2607;
+i_EDC=500.3689;
+d_EDC=0.1029705;
+aux_1= 477.7428;
+aux_2=451.8896;
+PKC=2.510846;
+
+EDC values for Borowiec fit
+
+a_EDC=465.91537;
+i_EDC=492.1363;
+d_EDC=0.0173;
+aux_1= 0.0570;
+aux_2=306.048;
+PKC=3.3147;
