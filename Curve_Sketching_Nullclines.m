@@ -66,7 +66,7 @@ IL4=0;
 PKC=0;
 v_Np63=1;
 d_Stat3=1;
-nu=1;
+nu=0;
 
 %%
 (IL4 + PKC)/d_Stat3 % interseccion en 0 subs(Stat_Nullcline,Np63_t,0)
