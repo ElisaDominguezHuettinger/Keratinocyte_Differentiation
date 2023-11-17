@@ -28,9 +28,9 @@
 
 (III) ODE analysis - Supplementary material - written in Matlab R2022a
 
--In-line figures in supplementary section 3:  **Curve_Sketching_Nullclines.m**
-- Figure S3: **Plot_Normalized_Toufighi_data.m**, reads data from:  "Names_of_genes.mat", "selected_genes_normalized.mat", "selected_genes_raw.mat", and "times_in_hours.mat".
--  
+- In-line figures in supplementary section 3:  **Fig_Sup_a1.m** and  **Curve_Sketching_Nullclines.m**
+- Figure S3: ** "Fig_Sup_a2.m**; for an extended version: **Plot_Normalized_Toufighi_data.m**, reads data from:  "Names_of_genes.mat", "selected_genes_normalized.mat", "selected_genes_raw.mat", and "times_in_hours.mat".
+- Figure S5: **Fig_Sup_a3.m** 
 
 (IV) Raw data extracted from papers (including data for model calibration and validation)  - Excel
 
