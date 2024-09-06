@@ -104,7 +104,7 @@ fontsize(gcf,scale=2)
 %beta=(d_Np63+NFkB+PKC*d_PKC)/v_Stat3; % Note that it depends on NfKB and PKC
 
 alpha=1;
-n_H=10;
+n_H=100;
 k_Np63=5;
 %%
 beta=0;
@@ -211,10 +211,10 @@ subs(Np63_Nullcline-asymptote, Np63_t, k_Np63)
 %}
 
 %%
-beta=.1
+beta=.1;
 figure;
 
-n_H=300
+n_H=100;
 
 hold on
 plot(Np63_t, Np63_t_Nullcline(beta, alpha,n_H,k_Np63,Np63_t), 'Color','k','LineWidth',3*beta+1)
@@ -224,12 +224,15 @@ hold on
 axis square
 ylim([-alpha,1])
 xlim([4, 6])
-
+set(gca,'xtick',[])
+set(gca,'ytick',[])
+%set(gca, 'FontSize',20)
+%
 line([0, max(Np63_t)], [0-alpha, beta*max(Np63_t)-alpha], 'Color','g','LineStyle', ':','LineWidth',2)
-text(0.5*max(Np63_t), beta*0.5*max(Np63_t)-alpha, ' \beta \times Np63(t)-\alpha', 'Color','g');%, 'FontSize',20)
-
-line([0, max(Np63_t)], [-alpha,-alpha], 'Color','r','LineStyle', '--','LineWidth',2)
-text(0,-alpha, ' -\alpha', 'Color','r');%, 'FontSize',20)
+text(6, beta*6-alpha, ' \beta \times Np63(t)-\alpha', 'Color','g');%, 'FontSize',20)
+%
+% line([0, max(Np63_t)], [-alpha,-alpha], 'Color','r','LineStyle', '--','LineWidth',2)
+% text(0,-alpha, ' -\alpha', 'Color','r');%, 'FontSize',20)
 
 %
 line([k_Np63, k_Np63], [-1,10], 'Color','m','LineStyle', '--','LineWidth',2)
@@ -241,13 +244,13 @@ text(10, beta*k_Np63-.5*alpha, ' \beta*k_N_p_6_3-\alpha/2', 'Color','c');%, 'Fon
 
 %
 line([0, max(Np63_t)], [0, beta*max(Np63_t)], 'Color',[0.9290 0.6940 0.1250],'LineStyle', ':','LineWidth',2)
-text(0,1, ' \beta \times Np63(t)', 'Color',[0.9290 0.6940 0.1250]);%, 'FontSize',20)
+text(6,beta*6, ' \beta \times Np63(t)', 'Color',[0.9290 0.6940 0.1250]);%, 'FontSize',20)
 
 %
 fontsize(gcf,scale=2)
 
 
-%%
+%
 %perpendicular line
 perpendicular=@(x)-1/beta*x+k_Np63*(beta+1/beta)-alpha/2
 
@@ -258,7 +261,7 @@ line(Np63_t, perpendicular(Np63_t), 'Color','b','LineStyle', ':','LineWidth',2)
 
 %line([0, alpha*beta], [0, -alpha], 'Color','b','LineStyle', ':','LineWidth',2)
 
-%%
+%
 mu=k_Np63*(beta+1/beta)-alpha/2;
 scatter(-mu/(-beta-1/beta),-beta*mu/(-beta-1/beta), 50, 'k')
 text(-mu/(-beta-1/beta),-beta*mu/(-beta-1/beta), ' A', 'Color','k', 'FontSize',20)
@@ -267,7 +270,74 @@ text(-mu/(-beta-1/beta),-beta*mu/(-beta-1/beta), ' A', 'Color','k', 'FontSize',2
 scatter((-mu-alpha)/(-beta-1/beta),(alpha/beta-beta*mu)/(-beta-1/beta), 50, 'k')
 text((-mu-alpha)/(-beta-1/beta),(alpha/beta-beta*mu)/(-beta-1/beta), ' B', 'Color','k', 'FontSize',20)
 
+
+
+%%
+
+%%
+beta=.4;
+figure;
+
+n_H=100;
+
+hold on
+plot(Np63_t, Np63_t_Nullcline(beta, alpha,n_H,k_Np63,Np63_t), 'Color','c','LineWidth',5)
+xlabel('Np63');
+ylabel('Nullclines');
+hold on
+axis square
+ylim([-alpha,1])
+xlim([4, 6])
+set(gca,'xtick',[])
+set(gca,'ytick',[])
+%set(gca, 'FontSize',20)
+%
+line([0, max(Np63_t)], [0-alpha, beta*max(Np63_t)-alpha], 'Color','g','LineStyle', ':','LineWidth',2)
+%text(6, beta*6-alpha, ' \beta \times Np63(t)-\alpha', 'Color','g');%, 'FontSize',20)
+%
+% line([0, max(Np63_t)], [-alpha,-alpha], 'Color','r','LineStyle', '--','LineWidth',2)
+% text(0,-alpha, ' -\alpha', 'Color','r');%, 'FontSize',20)
+
+%
+%line([k_Np63, k_Np63], [-1,10], 'Color','m','LineStyle', '--','LineWidth',2)
+%text(k_Np63, -alpha+1, ' k_N_p_6_3', 'Color','m');%, 'FontSize',20)
+
+%
+%line([0, max(Np63_t)], [beta*k_Np63-.5*alpha,beta*k_Np63-.5*alpha],'Color','c','LineStyle', '--','LineWidth',2) %linea arriba
+%text(10, beta*k_Np63-.5*alpha, ' \beta*k_N_p_6_3-\alpha/2', 'Color','c');%, 'FontSize',20)
+
+%
+line([0, max(Np63_t)], [0, beta*max(Np63_t)], 'Color',[0.9290 0.6940 0.1250],'LineStyle', ':','LineWidth',2)
+%text(6,beta*6, ' \beta \times Np63(t)', 'Color',[0.9290 0.6940 0.1250]);%, 'FontSize',20)
+
+%
+fontsize(gcf,scale=2)
+
+
+%
+%perpendicular line
+perpendicular=@(x)-1/beta*x+k_Np63*(beta+1/beta)-alpha/2
+
+
+line(Np63_t, -1/beta.*Np63_t, 'Color','b','LineStyle', ':','LineWidth',2)
+
+line(Np63_t, perpendicular(Np63_t), 'Color','b','LineStyle', ':','LineWidth',2)
+
+%line([0, alpha*beta], [0, -alpha], 'Color','b','LineStyle', ':','LineWidth',2)
+
+%
+mu=k_Np63*(beta+1/beta)-alpha/2;
+scatter(-mu/(-beta-1/beta),-beta*mu/(-beta-1/beta), 50, 'k')
+text(-mu/(-beta-1/beta),-beta*mu/(-beta-1/beta), ' A', 'Color','k', 'FontSize',20)
+
+%syms beta x k_Np63 alpha
+scatter((-mu-alpha)/(-beta-1/beta),(alpha/beta-beta*mu)/(-beta-1/beta), 50, 'k')
+text((-mu-alpha)/(-beta-1/beta),(alpha/beta-beta*mu)/(-beta-1/beta), ' B', 'Color','k', 'FontSize',20)
 %-1/beta*x+k_Np63*(beta+1/beta)-alpha/2
+Stat_Nullcline=@(PKC, Np63_t, v_Np63, d_Stat3)(PKC + Np63_t.*v_Np63)./(d_Stat3);
+plot(Np63_t,Stat_Nullcline(1.3, Np63_t, 0.05, d_Stat3), 'Color','m','LineStyle', '-','LineWidth',3)
+xlim([0, 10])
+ylim([0, 3])
 
 %%
 syms beta x k_Np63 alpha mu
@@ -283,7 +353,7 @@ By=(alpha/beta-beta*mu)/(-beta-1/beta)
 pretty([Ax, Ay])
 
 
-%% eucclidean distance
+% eucclidean distance
 
 dist=sqrt((Bx-Ax)^2+(By-Ay)^2)
 
@@ -294,19 +364,21 @@ simplify((((beta*mu - alpha/beta)/(beta + 1/beta) - (beta*mu)/(beta + 1/beta))^2
 (alpha^2/(beta^2 + 1))^(1/2)
 
 
-%%
+%
+
+
 
 
 %% Declare nullclines as functions
 
 Np63_t_Nullcline_gamma=@(beta,alpha,n_H,k_Np63,Np63_t, gamma)beta.*Np63_t-alpha.*(Np63_t.^n_H./(k_Np63.^n_H+Np63_t.^n_H))+gamma;
 %%
-k_Np63=5;
+k_Np63=2.5;
 alpha=1;
-beta=.5;
-gamma=1.5; 
+beta=1;
+gamma=-2; 
 
-n_H=10
+n_H=100
 
 figure;
 hold on
@@ -318,19 +390,18 @@ xlabel('Np63');
 ylabel('Np63 nullcline');
 hold on
 axis square
-xlim([0, 2*k_Np63])
-ylim([0,k_Np63])
-%ylim([gamma,-gamma+alpha])
+
+
 
 
 line([0, max(Np63_t)], [0-alpha, beta*max(Np63_t)-alpha], 'Color','g','LineStyle', ':','LineWidth',2)
 text(0.5*max(Np63_t), beta*0.5*max(Np63_t)-alpha, ' \beta \times Np63(t)-\alpha', 'Color','g');%, 'FontSize',20)
 
-%line([0, max(Np63_t)], [gamma,gamma], 'Color','r','LineStyle', '--','LineWidth',2)
+line([0, max(Np63_t)], [gamma,gamma], 'Color','r','LineStyle', '--','LineWidth',2)
 text(0,gamma, ' \gamma', 'Color','r');%, 'FontSize',20)
 
 %
-line([k_Np63, k_Np63], [0,10], 'Color','m','LineStyle', '--','LineWidth',2)
+line([k_Np63, k_Np63], [gamma,10], 'Color','m','LineStyle', '--','LineWidth',2)
 text(k_Np63, -alpha+1, ' k_N_p_6_3', 'Color','m');%, 'FontSize',20)
 
 %
@@ -342,11 +413,7 @@ line([0, max(Np63_t)], [0, beta*max(Np63_t)], 'Color',[0.9290 0.6940 0.1250],'Li
 text(0,1, ' \beta \times Np63(t)', 'Color',[0.9290 0.6940 0.1250]);%, 'FontSize',20)
 
 %
-line([0, max(Np63_t)], [gamma, gamma+beta*max(Np63_t)], 'Color',[0.9290 0.6940 0.1250],'LineStyle', ':','LineWidth',2)
-line([0, max(Np63_t)], [gamma-alpha, gamma+beta*max(Np63_t)-alpha], 'Color','g','LineStyle', ':','LineWidth',2)
-
-%
 fontsize(gcf,scale=2)
+ylim([gamma,3])
+xlim([0, 5])
 
-set(gca,'YTick',[]);
-set(gca,'XTick',[]);
