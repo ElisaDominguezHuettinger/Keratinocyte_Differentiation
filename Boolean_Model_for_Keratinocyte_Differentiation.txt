@@ -1,0 +1,10 @@
+targets, factors
+EGFR, !PKC | !p53 | EGFR
+cJun, PKC | (!PKC & !p53 & EGFR) & cJun | IL1
+p53, PKC & (!cJun | !Np63 | !Notch | miRNA203) & !E6 
+miRNA203, (Np63 | p53) &  !cJun
+Notch, (p53 | Np63 ) & cMyc
+cMyc, Notch | Np63 
+Np63, cMyc & (!Notch | EGFR)  & (!miRNA203 | Stat3 ) & !NFkB)
+Stat3, miRNA203 & (cMyc & (!Notch | EGFR)  & (!miRNA203 | Stat3 ) & !NFkB)) | IL4
+FLG_AMP, !Stat3 & Np63
